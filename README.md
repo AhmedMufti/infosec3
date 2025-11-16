@@ -312,7 +312,7 @@ See `TESTING_GUIDE.md` for detailed testing instructions.
 ---
 
 ## Authors
-[Your Name] - [Your Roll Number]
+Muhammad Ahmed Mufti - i22-1088
 
 ## License
 Academic use only.
