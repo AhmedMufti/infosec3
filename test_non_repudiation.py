@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Test: Non-Repudiation Verification
 This test verifies that session receipts can be verified and tampering is detected.
@@ -20,14 +20,30 @@ if os.path.exists(transcript_dir):
     transcript_files = [f for f in os.listdir(transcript_dir) if f.endswith('.txt')]
     
     if transcript_files:
-        print(f"Found {len(transcript_files)} transcript file(s):")
-        for f in transcript_files[:3]:  # Show first 3
-            print(f"  - {f}")
+        # Sort by modification time (most recent first)
+        transcript_files_with_time = []
+        for f in transcript_files:
+            file_path = os.path.join(transcript_dir, f)
+            mtime = os.path.getmtime(file_path)
+            transcript_files_with_time.append((mtime, f))
+        
+        transcript_files_with_time.sort(reverse=True)  # Most recent first
+        sorted_transcript_files = [f for _, f in transcript_files_with_time]
+        
+        print(f"Found {len(sorted_transcript_files)} transcript file(s):")
+        for i, f in enumerate(sorted_transcript_files[:5], 1):  # Show first 5
+            file_path = os.path.join(transcript_dir, f)
+            mtime = os.path.getmtime(file_path)
+            from datetime import datetime
+            mod_time = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d %H:%M:%S")
+            marker = " <- LATEST" if i == 1 else ""
+            print(f"  {i}. {f} ({mod_time}){marker}")
         print()
         
-        # Try to verify a transcript
-        transcript_file = os.path.join(transcript_dir, transcript_files[0])
-        print(f"Verifying transcript: {transcript_files[0]}")
+        # Use the latest transcript (most recently modified)
+        latest_transcript = sorted_transcript_files[0]
+        transcript_file = os.path.join(transcript_dir, latest_transcript)
+        print(f"Verifying LATEST transcript: {latest_transcript}")
         print("-" * 70)
         
         try:
