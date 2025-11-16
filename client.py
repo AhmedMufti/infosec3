@@ -407,6 +407,13 @@ class SecureChatClient:
             # Send message
             self.send_message(message)
             
+            '''
+            # REPLAY TEST: Resend with old seqno
+            old_seqno = self.seqno - 1
+            replay_msg = {**message, 'seqno': old_seqno}
+            self.send_message(replay_msg)
+            '''
+
             # Add to transcript
             transcript_line = f"{self.seqno}|{timestamp}|{ciphertext_b64}|{signature_b64}|{server_fingerprint}"
             transcript.append(transcript_line)
