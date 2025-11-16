@@ -464,6 +464,12 @@ class SecureChatServer:
                     
                     # Verify signature
                     ciphertext = base64.b64decode(ciphertext_b64)
+                    '''
+                     # TAMPERING TEST: Modify ciphertext
+                    ciphertext = bytearray(ciphertext)
+                    ciphertext[20] ^= 0xFF  # Flip a bit
+                    ciphertext = bytes(ciphertext)
+                    '''
                     signature = base64.b64decode(signature_b64)
                     
                     # Compute message digest
