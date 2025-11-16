@@ -1,0 +1,67 @@
+# Certificates and keys (never commit these)
+certs/*.key
+certs/*.pem
+certs/*.crt
+certs/*.cert
+!certs/.gitkeep
+
+# Environment variables
+.env
+*.env
+!*.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Transcripts
+transcripts/*.txt
+!transcripts/.gitkeep
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+assignment_content.txt
+assignment_text.txt
+extract_pdf.py
+temp_repo/
+
+
+
