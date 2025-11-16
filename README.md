@@ -8,7 +8,7 @@ A console-based secure chat system implementing **Confidentiality, Integrity, Au
 **Deadline:** Monday, 17th Nov, 2025, 11:59 AM (noon)
 
 ## Repository
-GitHub: [Your Private Repository URL]
+GitHub: https://github.com/AhmedMufti/infosec3.git
 
 ---
 
@@ -304,8 +304,8 @@ See `TESTING_GUIDE.md` for detailed testing instructions.
 - [ ] GitHub repository (private, ≥10 commits)
 - [ ] MySQL schema + sample records
 - [ ] README.md (this file)
-- [ ] Report: `RollNumber-FullName-Report-A02.docx`
-- [ ] Test Report: `RollNumber-FullName-TestReport-A02.docx`
+- [ ] Report
+- [ ] Test Report
 - [ ] Wireshark screenshots
 - [ ] All test evidence (invalid cert, tampering, replay, non-repudiation)
 
