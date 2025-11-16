@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Secure Chat Client
 Implements the client side of the secure chat protocol with CIANR guarantees.

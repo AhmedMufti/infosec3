@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Test: Invalid Certificate Rejection
 This test verifies that the server rejects invalid/expired/self-signed certificates.
