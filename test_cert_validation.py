@@ -14,12 +14,12 @@ try:
     client_cert_path = "certs/client_cert.pem"
     
     if not os.path.exists(ca_cert_path):
-        print("✗ CA certificate not found")
+        print("[FAIL] CA certificate not found")
         print("  Run: python scripts/gen_ca.py")
         sys.exit(1)
     
     if not os.path.exists(client_cert_path):
-        print("✗ Client certificate not found")
+        print("[FAIL] Client certificate not found")
         print("  Run: python scripts/gen_cert.py client")
         sys.exit(1)
     
@@ -28,18 +28,18 @@ try:
     ca_cert = load_ca_certificate(ca_cert_path)
     client_cert = load_certificate(client_cert_path)
     
-    print("✓ CA certificate loaded")
-    print("✓ Client certificate loaded")
+    print("[OK] CA certificate loaded")
+    print("[OK] Client certificate loaded")
     
     # Test validation
     print("\nValidating client certificate...")
     is_valid, error_msg = validate_certificate(client_cert, ca_cert)
     
     if is_valid:
-        print("✓ Certificate validation: SUCCESS")
+        print("[OK] Certificate validation: SUCCESS")
         print(f"  Message: {error_msg}")
     else:
-        print("✗ Certificate validation: FAILED")
+        print("[FAIL] Certificate validation: FAILED")
         print(f"  Error: {error_msg}")
         sys.exit(1)
     

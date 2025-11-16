@@ -35,7 +35,7 @@ try:
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
-    print("✓ Database connection successful!")
+    print("[OK] Database connection successful!")
     print()
     
     # Check if users table exists
@@ -44,7 +44,7 @@ try:
         table_exists = cursor.fetchone()
         
         if table_exists:
-            print("✓ 'users' table exists")
+            print("[OK] 'users' table exists")
             
             # Check table structure
             cursor.execute("DESCRIBE users")
@@ -58,17 +58,17 @@ try:
             count = cursor.fetchone()
             print(f"\nCurrent users in database: {count['count']}")
         else:
-            print("✗ 'users' table does NOT exist")
+            print("[FAIL] 'users' table does NOT exist")
             print("  Run: mysql -u root -p < database/schema.sql")
     
     connection.close()
     print()
     print("=" * 70)
-    print("Database test: PASSED")
+    print("[PASS] Database test: PASSED")
     print("=" * 70)
     
 except pymysql.Error as e:
-    print(f"✗ Database error: {e}")
+    print(f"[FAIL] Database error: {e}")
     print()
     print("Possible issues:")
     print("  1. MySQL server is not running")
@@ -83,7 +83,7 @@ except pymysql.Error as e:
     print("  4. Check .env file credentials")
     sys.exit(1)
 except Exception as e:
-    print(f"✗ Error: {e}")
+    print(f"[FAIL] Error: {e}")
     import traceback
     traceback.print_exc()
     sys.exit(1)
