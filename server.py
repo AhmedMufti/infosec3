@@ -19,6 +19,7 @@ from cryptography import x509
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.backends import default_backend
 import crypto_utils
+import pyotp
 
 # Load environment variables
 load_dotenv()
