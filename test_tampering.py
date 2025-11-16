@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Test: Message Tampering Detection
 This test verifies that tampered messages are detected via signature verification.
